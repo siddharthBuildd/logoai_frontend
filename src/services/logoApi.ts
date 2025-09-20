@@ -2,6 +2,14 @@ import axios from 'axios';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
+// Debug logging for API URL
+console.log('🔧 API Configuration:', {
+  VITE_API_URL: import.meta.env.VITE_API_URL,
+  API_BASE_URL: API_BASE_URL,
+  NODE_ENV: import.meta.env.NODE_ENV,
+  MODE: import.meta.env.MODE
+});
+
 // Create axios instance with default config
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -14,7 +22,8 @@ const api = axios.create({
 // Request interceptor for logging
 api.interceptors.request.use(
   (config) => {
-    console.log(`🚀 API Request: ${config.method?.toUpperCase()} ${config.url}`);
+    console.log(`🚀 API Request: ${config.method?.toUpperCase()} ${config.baseURL}${config.url}`);
+    console.log('📦 Request Data:', config.data);
     return config;
   },
   (error) => {
