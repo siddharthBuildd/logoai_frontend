@@ -130,7 +130,7 @@ const SSLCertificateCheck = ({ onCertificateAccepted }: SSLCertificateCheckProps
                   Certificate Accepted!
                 </h3>
                 <p className="text-slate-300 text-sm">
-                  Secure connection established. Redirecting to LogoAI...
+                  Secure connection established. Returning to LogoAI website...
                 </p>
               </div>
             </div>

@@ -22,6 +22,11 @@ const AppWrapper = ({ children }: AppWrapperProps) => {
     // Store acceptance in localStorage so user doesn't need to do it again
     localStorage.setItem('ssl-certificate-accepted', 'true');
     setCertificateAccepted(true);
+    
+    // Reload the page to ensure the app fully initializes with the certificate accepted
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   };
 
   if (isLoading) {
